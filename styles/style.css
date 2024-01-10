@@ -17,4 +17,37 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  padding-top: 100px;
+  color: var(--accent-color);
+  font-family: var(--accent-font), sans-serif;
+  font-size: 18px;
+  background-color: var(--background-color, #fff);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+ /* font-variation-settings: "wght" var(--main-weight, 400);*/
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(697px, 100%);
+  margin: 0 auto 100px;
+  border: 2px solid var(--accent-color);
+  padding: 140px 0px 14px;
+  color: var(--accent-color);
+  font-family: var(--accent-font, sans-serif);
+  background-color: var(--background-color);
+}
+
+.title {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
+  text-transform: uppercase;
+  
+}
+
