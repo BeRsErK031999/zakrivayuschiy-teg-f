@@ -153,15 +153,6 @@
   filter: grayscale(40%) saturate(150%) hue-rotate(90deg) invert(30%) blur(5px);
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  max-width: 700px;
-  width: 100%;
-  border: 2px solid var(--accent-color);
-  background-color: var(--page-background-color);
-}
-
 .card__title {
   padding: 5px 10px;
   font-variation-settings: var(--headings-font-weight);
@@ -316,7 +307,7 @@
   height: 55px;
 }
 
-.button__exit{
+.button__exit {
   width: 295px;
   height: 40px;
 }
