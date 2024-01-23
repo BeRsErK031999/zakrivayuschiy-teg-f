@@ -23,6 +23,8 @@
   background-size: cover;
   color: var(--text-color, #000000);
   font-family: var(--page-main-font-family, "Inter", sans-serif);
+  gap: 100px;
+  margin: 100px 0;
 }
 
 .header {
@@ -45,6 +47,8 @@
   text-align: center;
   text-decoration: none;
   margin-block-start: clamp(120px, 7.148rem + 1.502vw, 136px);
+  text-shadow: -1px 0 var(--text-stroke-color), 0 1px var(--text-stroke-color),
+    1px 0 var(--text-stroke-color), 0 -1px var(--text-stroke-color);
 }
 
 .header-text {
@@ -53,6 +57,10 @@
   font-weight: 400;
   text-align: center;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.theme-menu__item:not(:last-child) {
+  margin-block-end: 8px;
 }
 
 .theme-menu {
@@ -78,26 +86,47 @@
   transition: opacity 0.3s ease;
 }
 
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
 .theme-menu__button::after {
   content: "";
   display: block;
-  width: 0;
-  height: 1px;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  opacity: 0.6;
   background-color: var(--accent-color);
-  transition: width 0.3s ease;
+  transition: width 0.3s;
 }
 
-.theme-menu__button:focus::after {
-  width: 100%;
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 85%;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
+  transition: opacity 0.3s;
 }
 
-.theme-menu__button:disabled {
-  opacity: 0.6;
-  pointer-events: none;
+.theme-menu {
+  display: flex;
+  justify-content: center;
+  padding-block-start: 25px;
+  padding-block-end: 21px;
+  padding-inline-start: 20px;
 }
 
 .main-section {
@@ -183,12 +212,14 @@
   inset-inline-end: 25px;
 }
 
-@supports (text-stroke: 1px var(--background-color)) or
-  (-webkit-text-stroke: 1px var(--background-color)) {
-  .card__image-header {
+@supports (
+  (text-stroke: 1px var(--text-stroke-color)) or
+    (-webkit-text-stroke: 1px var(--text-stroke-color))
+) {
+  .image-decor {
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    text-stroke: 1px var(--text-stroke-color);
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--background-color);
-    text-stroke: 1px var(--background-color);
   }
 }
 
@@ -218,8 +249,8 @@
 }
 
 .card__icon-button {
-  width: 45px;
-  height: 40px;
+  width: 44px;
+  height: 38px;
   border: 2px solid transparent;
   transition: border 0.3s ease;
   padding-inline-start : 0;
@@ -265,6 +296,7 @@
   transform-origin: 0%;
   inset-inline-start: 0;
   inset-block-start: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
 .button:hover::before {
